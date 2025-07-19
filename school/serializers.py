@@ -21,7 +21,16 @@ class TeacherSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Teacher
-        fields = ['id', 'teacher_name', 'staff_id', 'title', 'department_id', 'created_at']
+        fields = [
+                    'id', 
+                    'teacher_name', 
+                    'staff_id', 
+                    'title', 
+                    'department_id', 
+                    'created_at', 
+                    'mentees',
+                    'advisees'
+                ]
 
 class StudentSerializer(serializers.ModelSerializer):
     mentor = TeacherSimpleSerializer(read_only=True)
