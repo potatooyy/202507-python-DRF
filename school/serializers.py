@@ -37,13 +37,17 @@ class StudentSerializer(serializers.ModelSerializer):
     mentor_id = serializers.PrimaryKeyRelatedField(
         queryset=Teacher.objects.all(),
         write_only=True,
-        source='mentor'
+        source='mentor',
+        required=False,
+        allow_null=True 
     )
     advisor = TeacherSimpleSerializer(read_only=True)
     advisor_id = serializers.PrimaryKeyRelatedField(
         queryset=Teacher.objects.all(),
         write_only=True,
-        source='advisor'
+        source='advisor',
+        required=False,
+        allow_null=True 
     )
     class Meta:
         model = Student

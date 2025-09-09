@@ -30,8 +30,8 @@ class Student(models.Model):
     department_id = models.CharField(max_length = 64)
     enroll_year = models.IntegerField()
     class_id = models.CharField(max_length = 16)
-    mentor = models.ForeignKey(Teacher, related_name='mentees', on_delete=models.SET_NULL, null=True)
-    advisor = models.ForeignKey(Teacher, related_name='advisees', on_delete=models.SET_NULL, null=True)
+    mentor = models.ForeignKey(Teacher, related_name='mentees', on_delete=models.SET_NULL, blank=True, null=True)
+    advisor = models.ForeignKey(Teacher, related_name='advisees', on_delete=models.SET_NULL, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     @property
